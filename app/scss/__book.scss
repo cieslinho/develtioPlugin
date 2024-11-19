@@ -30,13 +30,13 @@
 
 	&__texts {
 		width: 100%;
-	}
 
-	&__texts > p {
-		line-height: 180%;
+		p {
+			line-height: 180%;
 
-		@include view(mobile) {
-			font-size: 1.8rem;
+			@include view(mobile) {
+				font-size: 1.8rem;
+			}
 		}
 	}
 

@@ -1,6 +1,6 @@
 <?php
 
-class books_cpt
+class BooksCpt
 {
     public static function init()
     {

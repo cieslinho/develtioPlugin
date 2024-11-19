@@ -1,6 +1,6 @@
 <?php
 
-class books_assets
+class BooksAssets
 {
     public static function init()
     {

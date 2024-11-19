@@ -174,13 +174,15 @@ body {
     flex-direction: row;
   }
 }
-.books__box:hover,
-.book__box:hover {
-  box-shadow: 0 0 20px #afaeae;
-}
-.books__box:hover a img,
-.book__box:hover a img {
-  transform: scale(1.1);
+@media only screen and (min-width: 767px) {
+  .books__box:hover,
+  .book__box:hover {
+    box-shadow: 0 0 20px #afaeae;
+  }
+  .books__box:hover a img,
+  .book__box:hover a img {
+    transform: scale(1.1);
+  }
 }
 .books__thumbnail,
 .book__thumbnail {
@@ -213,12 +215,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-@media only screen and (min-width: 767px) {
-  .books__thumbnail,
-  .book__thumbnail {
-    height: 100%;
-  }
 }
 .books__texts, .books__info,
 .book__texts,
@@ -267,11 +263,13 @@ body {
   font-size: 2.4rem;
   text-transform: uppercase;
 }
-.books__texts h2:hover, .books__info h2:hover,
-.book__texts h2:hover,
-.book__info h2:hover {
-  background-color: #e9e9e9;
-  color: #202020;
+@media only screen and (min-width: 767px) {
+  .books__texts h2:hover, .books__info h2:hover,
+  .book__texts h2:hover,
+  .book__info h2:hover {
+    background-color: #e9e9e9;
+    color: #202020;
+  }
 }
 .books__texts h2 a, .books__info h2 a,
 .book__texts h2 a,
@@ -314,6 +312,7 @@ body {
     padding: 0.3em 0.6em;
   }
 }
+
 .book {
   padding: 1.5em 0;
 }
@@ -351,11 +350,11 @@ body {
 .book__texts {
   width: 100%;
 }
-.book__texts > p {
+.book__texts p {
   line-height: 180%;
 }
 @media only screen and (min-width: 767px) {
-  .book__texts > p {
+  .book__texts p {
     font-size: 1.8rem;
   }
 }
