@@ -3,7 +3,7 @@
 <section class="books">
     <div class="container">
         <h2 class="section-title">
-            Książki
+        <?esc_html_e ("Książki", "Books Plugin") ?>
         </h2>
         <?php if (have_posts()): ?>
             <div class="books__boxes">

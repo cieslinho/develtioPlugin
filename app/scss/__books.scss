@@ -19,11 +19,13 @@
 		}
 
 		&:hover {
-			box-shadow: 0 0 20px $blackHover;
+			@include view(mobile) {
+				box-shadow: 0 0 20px $blackHover;
 
-			a {
-				img {
-					transform: scale(1.1);
+				a {
+					img {
+						transform: scale(1.1);
+					}
 				}
 			}
 		}
@@ -58,10 +60,6 @@
 				object-fit: cover;
 			}
 		}
-
-		@include view(mobile) {
-			height: 100%;
-		}
 	}
 
 	&__texts,
@@ -92,12 +90,13 @@
 			padding: 0.2em 0.4em;
 			color: $gray;
 			font-size: 2.4rem;
-			// text-decoration: none;
 			text-transform: uppercase;
 
-			&:hover {
-				background-color: $darkGray;
-				color: $black;
+			@include view(mobile) {
+				&:hover {
+					background-color: $darkGray;
+					color: $black;
+				}
 			}
 
 			a {
@@ -135,14 +134,5 @@
 			background-color: $darkGray;
 			padding: 0.3em 0.6em;
 		}
-	}
-
-	&__author {
-	}
-
-	&__date {
-	}
-
-	&__genre {
 	}
 }
