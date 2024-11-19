@@ -20,7 +20,7 @@ class books_plugin {
                 return $custom_template;
             }
         }
-        return $template; // Domyślny szablon, jeśli żaden nie pasuje
+        return $template;
     }
 }
 

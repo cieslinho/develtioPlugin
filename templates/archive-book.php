@@ -30,15 +30,16 @@
                                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                             </h2>
                            <?php the_excerpt(); ?>
-                        </div>
-
-                        <?php if ($books_content) : ?>
+                           <?php if ($books_content) : ?>
                             <div class="books__info">
                                 <p class="books__author"><span>Autor:</span> <?php echo esc_html( $book_author ); ?></p>
                                 <p class="books__date"><span>Data wydania:</span>  <?php echo esc_html( $book_date ); ?></p>
                                 <p class="books__genre"><span>Gatunek:</span> <?php echo esc_html( $book_genre ); ?></p>
                             </div>
                         <?php endif; ?>
+                        </div>
+
+                       
 
                     </div>
                 <?php endwhile; ?>

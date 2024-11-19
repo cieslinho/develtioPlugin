@@ -36,3 +36,21 @@
 		padding: 3em 0;
 	}
 }
+
+@mixin btn {
+	transition: all 0.3s;
+	border-radius: 8px;
+	background-color: $black;
+	padding: 0.5em 1em;
+	color: $gray;
+	text-decoration: none;
+
+	&:hover {
+		background-color: $darkGray;
+		color: $black;
+	}
+
+	@include view(mobile) {
+		padding: 1em 2em;
+	}
+}
