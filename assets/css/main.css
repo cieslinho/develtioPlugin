@@ -1,0 +1,392 @@
+@charset "UTF-8";
+/***
+    The new CSS reset - version 1.7.3 (last updated 7.8.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+- fix for the content editable attribute will work properly.
+- webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+  overflow-wrap: break-word;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* clears the ‘X’ from Internet Explorer */
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the ‘X’ from Chrome */
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0.5em 1em;
+  width: 100%;
+  max-width: 1400px;
+}
+@media only screen and (min-width: 1023px) {
+  .container {
+    padding: 1.5em 2em;
+  }
+}
+
+.section-title {
+  margin-block: 1em;
+  font-size: 3rem;
+  text-align: center;
+}
+@media only screen and (min-width: 567px) {
+  .section-title {
+    font-size: 4rem;
+  }
+}
+
+.books,
+.book {
+  padding: 1.5em 0;
+}
+@media only screen and (min-width: 1023px) {
+  .books,
+  .book {
+    padding: 3em 0;
+  }
+}
+.books__boxes,
+.book__boxes {
+  display: grid;
+  gap: 2em;
+}
+.books__box,
+.book__box {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+  border-radius: 8px;
+  overflow: hidden;
+}
+@media only screen and (min-width: 767px) {
+  .books__box,
+  .book__box {
+    flex-direction: row;
+  }
+}
+.books__box:hover,
+.book__box:hover {
+  box-shadow: 0 0 20px #afaeae;
+}
+.books__box:hover a img,
+.book__box:hover a img {
+  transform: scale(1.1);
+}
+.books__thumbnail,
+.book__thumbnail {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+}
+@media only screen and (min-width: 767px) {
+  .books__thumbnail,
+  .book__thumbnail {
+    width: 15%;
+    min-height: 250px;
+  }
+}
+.books__thumbnail a,
+.book__thumbnail a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.books__thumbnail a img,
+.book__thumbnail a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media only screen and (min-width: 767px) {
+  .books__thumbnail,
+  .book__thumbnail {
+    height: 100%;
+  }
+}
+.books__texts, .books__info,
+.book__texts,
+.book__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+@media only screen and (min-width: 767px) {
+  .books__texts, .books__info,
+  .book__texts,
+  .book__info {
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+}
+.books__texts h2,
+.books__texts p, .books__info h2,
+.books__info p,
+.book__texts h2,
+.book__texts p,
+.book__info h2,
+.book__info p {
+  text-align: center;
+}
+@media only screen and (min-width: 767px) {
+  .books__texts h2,
+  .books__texts p, .books__info h2,
+  .books__info p,
+  .book__texts h2,
+  .book__texts p,
+  .book__info h2,
+  .book__info p {
+    text-align: left;
+  }
+}
+.books__texts h2, .books__info h2,
+.book__texts h2,
+.book__info h2 {
+  transition: all 0.3s;
+  border-radius: 2px;
+  background-color: #202020;
+  padding: 0.2em 0.4em;
+  color: #f6f6f6;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+.books__texts h2:hover, .books__info h2:hover,
+.book__texts h2:hover,
+.book__info h2:hover {
+  background-color: #e9e9e9;
+  color: #202020;
+}
+.books__texts h2 a, .books__info h2 a,
+.book__texts h2 a,
+.book__info h2 a {
+  text-decoration: none;
+}
+.books__texts h2 + p, .books__info h2 + p,
+.book__texts h2 + p,
+.book__info h2 + p {
+  font-size: 1.4rem;
+  line-height: 180%;
+}
+.books__texts,
+.book__texts {
+  background-color: #f6f6f6;
+  padding: 1em 2em;
+}
+@media only screen and (min-width: 767px) {
+  .books__texts,
+  .book__texts {
+    width: 85%;
+  }
+}
+.books__info,
+.book__info {
+  gap: 0.2em;
+  font-size: 1.4rem;
+}
+.books__info span,
+.book__info span {
+  font-weight: 600;
+}
+@media only screen and (min-width: 767px) {
+  .books__info,
+  .book__info {
+    flex-direction: row;
+    gap: 1em;
+    border-radius: 2px;
+    background-color: #e9e9e9;
+    padding: 0.3em 0.6em;
+  }
+}
+.book {
+  padding: 1.5em 0;
+}
+@media only screen and (min-width: 1023px) {
+  .book {
+    padding: 3em 0;
+  }
+}
+.book__box {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+}
+@media only screen and (min-width: 767px) {
+  .book__box {
+    flex-direction: row;
+  }
+}
+.book__thumbnail {
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+}
+@media only screen and (min-width: 767px) {
+  .book__thumbnail {
+    width: 20%;
+  }
+}
+.book__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.book__texts {
+  width: 100%;
+}
+.book__texts > p {
+  line-height: 180%;
+}
+@media only screen and (min-width: 767px) {
+  .book__texts > p {
+    font-size: 1.8rem;
+  }
+}
+@media only screen and (min-width: 767px) {
+  .book__info {
+    font-size: 1.6rem;
+  }
+}
+.book__btn {
+  transition: all 0.3s;
+  border-radius: 8px;
+  background-color: #202020;
+  padding: 0.5em 1em;
+  color: #f6f6f6;
+  text-decoration: none;
+  display: block;
+  margin-inline: auto;
+  margin-block: 2em;
+  text-align: center;
+}
+.book__btn:hover {
+  background-color: #e9e9e9;
+  color: #202020;
+}
+@media only screen and (min-width: 767px) {
+  .book__btn {
+    padding: 1em 2em;
+  }
+}
+@media only screen and (min-width: 767px) {
+  .book__btn {
+    max-width: 350px;
+  }
+}
