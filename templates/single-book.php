@@ -40,7 +40,7 @@
                         </div>
 
                     </div>
-                        <a href="<?php echo get_post_type_archive_link( 'book' ); ?>" class="btn">Powrót do listy książek</a>
+                        <a href="<?php echo get_post_type_archive_link( 'book' ); ?>" class="book__btn">Powrót do listy książek</a>
                     </div>
                
            

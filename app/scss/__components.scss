@@ -8,3 +8,13 @@
 		padding: 1.5em 2em;
 	}
 }
+
+.section-title {
+	margin-block: 1em;
+	font-size: 3rem;
+	text-align: center;
+
+	@include view(mobile-max) {
+		font-size: 4rem;
+	}
+}
